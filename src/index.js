@@ -1,5 +1,3 @@
-console.log("blank");
-
 import './styles.css';
 
 function openTab(evt, tabName) {
@@ -24,7 +22,7 @@ function openTab(evt, tabName) {
   } 
 
 const tabs = document.createElement('div');
-element.classList.add('tab');
+tabs.classList.add('tab');
 const homeBtn = document.createElement('button');
 homeBtn.classList.add("tablinks");
 
@@ -34,34 +32,38 @@ menuBtn.classList.add("tablinks");
 const contactBtn = document.createElement('button');
 contactBtn.classList.add("tablinks");
 
-
 homeBtn.textContent="Home";
 menuBtn.textContent="Menu";
 contactBtn.textContent="Contact";
 
-homeBtn.setAttribute('onclick',openTab(evt,"Home"));
-menuBtn.setAttribute('onclick',openTab(evt,"Menu"));
-contactBtn.setAttribute('onclick',openTab(evt,"Contact"));
+/*homeBtn.setAttribute('onclick','openTab(event,"Home");');
+menuBtn.setAttribute('onclick','openTab(event,"Menu");');
+contactBtn.setAttribute('onclick','openTab(event,"Contact");');*/
 
 /*default click*/
-homeBtn.setAttribute('id','default-click');
+//homeBtn.setAttribute('id','default-click');
 
 /* Tab content */
 
 const homeTab = document.createElement('div');
 homeTab.classList.add("tabcontent");
 homeTab.setAttribute("id","Home");
-contactTab.textContent="Home tab welcoming customers";
+homeTab.textContent="Home tab welcoming customers";
 
 const menuTab = document.createElement('div');
 menuTab.classList.add("tabcontent");
 menuTab.setAttribute("id","Menu");
-contactTab.textContent="Here is the menu";
+menuTab.textContent="Here is the menu";
 
 const contactTab = document.createElement('div');
 contactTab.classList.add("tabcontent");
 contactTab.setAttribute("id","Contact");
 contactTab.textContent="This is the contact tab";
+
+homeBtn.addEventListener('click', openTab(e,"Home"));
+menuBtn.addEventListener('click', openTab(e,"Menu"));
+contactBtn.addEventListener('click', openTab(e,"Contact"));
+
 
 tabs.appendChild(homeBtn);
 tabs.appendChild(menuBtn);
@@ -72,4 +74,4 @@ document.body.appendChild(homeTab);
 document.body.appendChild(menuTab);
 document.body.appendChild(contactTab);
 
-document.getElementById('default-click').click();
+//document.getElementById('default-click').click();
